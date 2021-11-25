@@ -89,6 +89,19 @@ spec:
     targetPort: 8080
   type: NodePort
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: springbootLB
+  name: springbootLB
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: springapp
+---
 # Mongo db pod with volumes(HostPath)
 apiVersion: apps/v1
 kind: ReplicaSet
