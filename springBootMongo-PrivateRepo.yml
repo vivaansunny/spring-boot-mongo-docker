@@ -36,6 +36,19 @@ spec:
   selector:
     name: springboot
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: springbootLB
+  name: springbootLB
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    name: springboot
+---
 # Mongo host path rc
 apiVersion: v1
 kind: ReplicationController
